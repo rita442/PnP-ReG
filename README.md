@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 # ReG training 
 
-- The pre-trained denoiser (DRUNet) should be set in models/DRUNet/drunet_color_fixed_LR.pth . 
+- If you can not use the denoiser model in models/DRUNet/drunet_color_fixed_LR.pth, the pre-trained denoiser (DRUNet) should be downloaded and set in models/DRUNet/drunet_color_fixed_LR.pth . 
 - The training dataset (same as DRUNet training: DIV2K, Flickr2K, Waterloo_Exploration_Database, BSD500) should be downloaded and stored in ./data/(name of dataset). 
 
 In order to train the network modeling the gradient of a regularizer, by using a pre-trained denoiser DRUNet and updating it jointly with the regularizer, we run the following: 
@@ -37,7 +37,7 @@ python train_ReG.py -nie 43470 -nilrd 100000 -lnw 8 -im "./models/DRUNet/drunet_
 
 # ReG for testing
 
-The trained regularizer network can be downloaded [here](https://drive.google.com/drive/folders/1nuQbNrqYAn96zOPxrF2dNB0m0WGvtA_D?usp=sharing). You should save it in models/regularizers/ReG.pth in order to use it for testing. 
+If you are not able to download the ReG file in models/regularizers, the trained regularizer network can be downloaded [here](https://drive.google.com/drive/folders/1nuQbNrqYAn96zOPxrF2dNB0m0WGvtA_D?usp=sharing). You should save it in models/regularizers/ReG.pth in order to use it for testing. 
 
 For performing Super-resolution of factor 2 with an added noise of 0.01 (2.55/255): 
 
@@ -67,13 +67,8 @@ python deblurring_regularizer.py --k_index 2 --lr 0.004 --noise_level_img 2.55 -
 **Arguments description:**
 
 - k_index is the index of the kernel number used in kernels_12.mat. For the results of the paper, we use k_index 2 and 3 for the isotropic gaussian kernels of standard deviation 1.6 and 2.0 respectively, and 5 and 7 for the anisotropic kernels.
-- lr is the learning rate of the Gradient-descent algorithm
-- noise_level_img is the added AWGN (/255) during the degradation (after blurring) 
-- sigma is the weight of the regularization (/255)
-- testset_name specifies the testing dataset (can be set5, CBSD68)
-- num_iter is the number of iterations of the GD (can be set to 1500)
 
-- save_im can be added to save the results
+Remaining arguments are the same as in SR. 
 
 For pixel-wise inpainting with 20% of the total pixels maintained: 
 
@@ -84,12 +79,6 @@ python completion_regularizer.py --factor 0.2 --lr 0.01 --sigma 1 --testset_name
 **Arguments description:**
 
 - factor is the part of pixels to maintain (between 0 and 1). i.e. 0.2 means 20% of the pixels are maintained and 80% are masked
-- lr is the learning rate of the Gradient-descent algorithm
-- sigma is the weight of the regularization (/255)
-- testset_name specifies the testing dataset (can be set5, CBSD68)
-- num_iter is the number of iterations of the GD (can be set to 1500)
-
-- save_im can be added to save the results
 
 
 **For solving SR, deblurring and pixel-wise inpainting with other degradation parameters, check the Table 1 in our paper to properly set the Gradient Descent parameters for each degradation model (LR and weight of the regularization).**
