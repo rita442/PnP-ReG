@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 # ReG training 
 
-- The pre-trained denoiser (DRUNet) should be set in models/DRUNet/drunet_color_fixed_LR.pth . 
+- If you can not use the denoiser model in models/DRUNet/drunet_color_fixed_LR.pth, the pre-trained denoiser (DRUNet) should be set in models/DRUNet/drunet_color_fixed_LR.pth . 
 - The training dataset (same as DRUNet training: DIV2K, Flickr2K, Waterloo_Exploration_Database, BSD500) should be downloaded and stored in ./data/(name of dataset). 
 
 In order to train the network modeling the gradient of a regularizer, by using a pre-trained denoiser DRUNet and updating it jointly with the regularizer, we run the following: 
@@ -37,7 +37,7 @@ python train_ReG.py -nie 43470 -nilrd 100000 -lnw 8 -im "./models/DRUNet/drunet_
 
 # ReG for testing
 
-The trained regularizer network can be downloaded [here](https://drive.google.com/drive/folders/1nuQbNrqYAn96zOPxrF2dNB0m0WGvtA_D?usp=sharing). You should save it in models/regularizers/ReG.pth in order to use it for testing. 
+If you are not able to download the ReG file in models/regularizers, the trained regularizer network can be downloaded [here](https://drive.google.com/drive/folders/1nuQbNrqYAn96zOPxrF2dNB0m0WGvtA_D?usp=sharing). You should save it in models/regularizers/ReG.pth in order to use it for testing. 
 
 For performing Super-resolution of factor 2 with an added noise of 0.01 (2.55/255): 
 
