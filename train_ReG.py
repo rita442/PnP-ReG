@@ -24,7 +24,7 @@ from ImagePathDataset import ImagePathDataset
 def main():
     now = datetime.now()
     
-    datasetDir = '/nfs/stk-sirocco-clim.irisa.fr/data/teams/sirocco_clim/sirocco_clim_image/Data_Mikael/datasets'
+    datasetDir = './data' # i.e. '/datasets' where you have your different training datasets in different folders
     trainDatasetFile = 'dataset_8694_2D.csv'
     validDatasetFile = 'dataset_100_2D.csv'
     
