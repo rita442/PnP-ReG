@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 # ReG training 
 
-- If you can not use the denoiser model in models/DRUNet/drunet_color_fixed_LR.pth, the pre-trained denoiser (DRUNet) should be set in models/DRUNet/drunet_color_fixed_LR.pth . 
+- If you can not use the denoiser model in models/DRUNet/drunet_color_fixed_LR.pth, the pre-trained denoiser (DRUNet) should be downloaded and set in models/DRUNet/drunet_color_fixed_LR.pth . 
 - The training dataset (same as DRUNet training: DIV2K, Flickr2K, Waterloo_Exploration_Database, BSD500) should be downloaded and stored in ./data/(name of dataset). 
 
 In order to train the network modeling the gradient of a regularizer, by using a pre-trained denoiser DRUNet and updating it jointly with the regularizer, we run the following: 
