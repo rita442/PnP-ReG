@@ -67,13 +67,8 @@ python deblurring_regularizer.py --k_index 2 --lr 0.004 --noise_level_img 2.55 -
 **Arguments description:**
 
 - k_index is the index of the kernel number used in kernels_12.mat. For the results of the paper, we use k_index 2 and 3 for the isotropic gaussian kernels of standard deviation 1.6 and 2.0 respectively, and 5 and 7 for the anisotropic kernels.
-- lr is the learning rate of the Gradient-descent algorithm
-- noise_level_img is the added AWGN (/255) during the degradation (after blurring) 
-- sigma is the weight of the regularization (/255)
-- testset_name specifies the testing dataset (can be set5, CBSD68)
-- num_iter is the number of iterations of the GD (can be set to 1500)
 
-- save_im can be added to save the results
+Remaining arguments are the same as in SR. 
 
 For pixel-wise inpainting with 20% of the total pixels maintained: 
 
@@ -84,12 +79,6 @@ python completion_regularizer.py --factor 0.2 --lr 0.01 --sigma 1 --testset_name
 **Arguments description:**
 
 - factor is the part of pixels to maintain (between 0 and 1). i.e. 0.2 means 20% of the pixels are maintained and 80% are masked
-- lr is the learning rate of the Gradient-descent algorithm
-- sigma is the weight of the regularization (/255)
-- testset_name specifies the testing dataset (can be set5, CBSD68)
-- num_iter is the number of iterations of the GD (can be set to 1500)
-
-- save_im can be added to save the results
 
 
 **For solving SR, deblurring and pixel-wise inpainting with other degradation parameters, check the Table 1 in our paper to properly set the Gradient Descent parameters for each degradation model (LR and weight of the regularization).**
